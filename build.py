@@ -11,6 +11,7 @@ duplicate full page, to avoid canonical conflicts in the sitemap.
 import itertools
 import os
 import shutil
+from datetime import date
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
@@ -27,6 +28,7 @@ CATEGORY_LABELS = {
 }
 
 env = Environment(loader=FileSystemLoader("templates"), autoescape=True)
+env.globals["build_date"] = date.today().strftime("%B %d, %Y")
 
 
 def load_tools():
@@ -103,6 +105,15 @@ def build_categories(tools):
         )
         with open(os.path.join(OUT_DIR, "category", f"{cat}.html"), "w") as f:
             f.write(html)
+
+
+def build_static_pages():
+    for page in ("about", "contact", "privacy"):
+        tmpl = env.get_template(f"{page}.html")
+        html = tmpl.render(site_name=SITE_NAME, site_url=SITE_URL)
+        with open(os.path.join(OUT_DIR, f"{page}.html"), "w") as f:
+            f.write(html)
+    print("Generated about.html, contact.html, privacy.html")
 
 
 def build_alternatives(tools, by_slug):
@@ -187,6 +198,9 @@ def build_sitemap(tools):
     for t in tools:
         urls.append(f"{SITE_URL}/alternatives-to-{t['slug']}.html")
 
+    for page in ("about", "contact", "privacy"):
+        urls.append(f"{SITE_URL}/{page}.html")
+
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         lines.append(f"  <url><loc>{u}</loc></url>")
@@ -203,6 +217,7 @@ def main():
     build_categories(tools)
     build_comparisons(tools, by_slug)
     build_alternatives(tools, by_slug)
+    build_static_pages()
     build_sitemap(tools)
     print(f"Build complete: {len(tools)} tools -> {OUT_DIR}/")
 
