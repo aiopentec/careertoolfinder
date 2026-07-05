@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}{{ tool_a.name }} vs {{ tool_b.name }}: Which Is Better? — {{ site_name }}{% endblock %}
+{% block meta_description %}{{ tool_a.name }} vs {{ tool_b.name }} compared on pricing, features, pros and cons for job seekers.{% endblock %}
+{% block canonical %}{{ site_url }}{{ canonical_path }}{% endblock %}
+{% block content %}
+<section class="comparison-page">
+  <h1>{{ tool_a.name }} vs {{ tool_b.name }}</h1>
+  <p class="category-tag">{{ category_label }}</p>
+
+  <div class="comparison-grid">
+    <div class="tool-column">
+      <h2>{{ tool_a.name }}</h2>
+      <p class="tagline">{{ tool_a.tagline }}</p>
+      <p class="pricing"><strong>Pricing:</strong> {{ tool_a.pricing }}</p>
+      <h3>Pros</h3>
+      <ul>{% for p in tool_a.pros %}<li>{{ p }}</li>{% endfor %}</ul>
+      <h3>Cons</h3>
+      <ul>{% for c in tool_a.cons %}<li>{{ c }}</li>{% endfor %}</ul>
+      <a href="{{ tool_a.url }}" rel="nofollow noopener">Visit {{ tool_a.name }} →</a>
+    </div>
+
+    <div class="tool-column">
+      <h2>{{ tool_b.name }}</h2>
+      <p class="tagline">{{ tool_b.tagline }}</p>
+      <p class="pricing"><strong>Pricing:</strong> {{ tool_b.pricing }}</p>
+      <h3>Pros</h3>
+      <ul>{% for p in tool_b.pros %}<li>{{ p }}</li>{% endfor %}</ul>
+      <h3>Cons</h3>
+      <ul>{% for c in tool_b.cons %}<li>{{ c }}</li>{% endfor %}</ul>
+      <a href="{{ tool_b.url }}" rel="nofollow noopener">Visit {{ tool_b.name }} →</a>
+    </div>
+  </div>
+
+  {% if tool_a.featured or tool_b.featured %}
+  {% include "_atskiller_cta.html" %}
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,255 @@
+# Job Tool Stack — tool data
+# category values: resume, interview, jobboard, linkedin
+# `featured` marks your own product for CTA priority (never used in neutral-sounding copy)
+# `affiliate_link` left blank until you have a program approved for that tool
+
+- slug: atskiller
+  name: ATSKILLER
+  category: resume
+  tagline: AI prompt kit for tailoring resumes and cover letters to any job post
+  pricing: "$19 one-time"
+  pros:
+    - Built specifically for ATS keyword matching
+    - One-time payment, no subscription
+    - Works with any AI chat tool you already use
+  cons:
+    - Not a standalone app — requires pasting prompts into an AI tool
+    - No built-in resume builder/formatter
+  url: https://ogoina4.gumroad.com/l/atskiller
+  affiliate_link: ""
+  featured: true
+
+- slug: jobscan
+  name: Jobscan
+  category: resume
+  tagline: ATS resume scanner that scores your resume against a job description
+  pricing: "Free scan / $49.95+ per month for full plan"
+  pros:
+    - Direct ATS match-rate scoring
+    - LinkedIn optimization tool included
+  cons:
+    - Subscription pricing is steep for occasional job seekers
+  url: https://www.jobscan.co
+  affiliate_link: ""
+  featured: false
+
+- slug: rezi
+  name: Rezi
+  category: resume
+  tagline: AI resume builder with built-in ATS scoring
+  pricing: "Free tier / $29 per month Pro"
+  pros:
+    - Combines building and ATS checking in one tool
+    - Clean templates
+  cons:
+    - Free tier is limited to one resume
+  url: https://www.rezi.ai
+  affiliate_link: ""
+  featured: false
+
+- slug: zety
+  name: Zety
+  category: resume
+  tagline: Resume and cover letter builder with guided content suggestions
+  pricing: "$5.99 for 14-day trial, then subscription"
+  pros:
+    - Large template library
+    - Guided phrase suggestions per job title
+  cons:
+    - Trial-to-subscription pricing model draws complaints
+  url: https://zety.com
+  affiliate_link: ""
+  featured: false
+
+- slug: resumeio
+  name: Resume.io
+  category: resume
+  tagline: Simple resume builder focused on speed and clean templates
+  pricing: "$2.95 trial, then subscription"
+  pros:
+    - Fast to produce a polished resume
+    - Good template variety
+  cons:
+    - No ATS keyword scoring built in
+  url: https://resume.io
+  affiliate_link: ""
+  featured: false
+
+- slug: pramp
+  name: Pramp
+  category: interview
+  tagline: Free peer-to-peer mock interview platform
+  pricing: "Free"
+  pros:
+    - Completely free
+    - Live practice with real people, not just scripted questions
+  cons:
+    - Quality of practice depends on the peer you're matched with
+  url: https://www.pramp.com
+  affiliate_link: ""
+  featured: false
+
+- slug: interviewquery
+  name: Interview Query
+  category: interview
+  tagline: Interview question bank and courses focused on data/tech roles
+  pricing: "Free tier / $39 per month Premium"
+  pros:
+    - Deep question bank for technical and data roles
+    - Structured learning paths
+  cons:
+    - Less useful for non-technical roles
+  url: https://www.interviewquery.com
+  affiliate_link: ""
+  featured: false
+
+- slug: biginterview
+  name: Big Interview
+  category: interview
+  tagline: Video-based mock interview practice with AI feedback
+  pricing: "$79 per year"
+  pros:
+    - Realistic video practice format
+    - Feedback scoring on delivery, not just content
+  cons:
+    - Annual commitment required for full access
+  url: https://biginterview.com
+  affiliate_link: ""
+  featured: false
+
+- slug: googlewarmup
+  name: Google Interview Warmup
+  category: interview
+  tagline: Free AI-driven interview practice tool from Google
+  pricing: "Free"
+  pros:
+    - Completely free, no signup friction
+    - Quick way to identify filler words and rambling
+  cons:
+    - Generic questions, not role-specific
+  url: https://grow.google/certificates/interview-warmup/
+  affiliate_link: ""
+  featured: false
+
+- slug: linkedinjobs
+  name: LinkedIn Jobs
+  category: jobboard
+  tagline: The largest professional network's native job board
+  pricing: "Free / Premium subscription for extra insights"
+  pros:
+    - Largest pool of listings tied to real companies
+    - "\"Easy Apply\" reduces application friction"
+  cons:
+    - High competition per listing due to Easy Apply volume
+  url: https://www.linkedin.com/jobs
+  affiliate_link: ""
+  featured: false
+
+- slug: indeed
+  name: Indeed
+  category: jobboard
+  tagline: General-purpose job search engine aggregating listings from many sources
+  pricing: "Free"
+  pros:
+    - Massive listing volume across every industry
+    - Simple one-click apply on many posts
+  cons:
+    - Listing quality is inconsistent, some are stale or reposted
+  url: https://www.indeed.com
+  affiliate_link: ""
+  featured: false
+
+- slug: ziprecruiter
+  name: ZipRecruiter
+  category: jobboard
+  tagline: Job board that actively pushes your profile to matching employers
+  pricing: "Free for job seekers"
+  pros:
+    - Employers often reach out first
+    - Mobile app is well built for quick applications
+  cons:
+    - Can generate a lot of email/notification noise
+  url: https://www.ziprecruiter.com
+  affiliate_link: ""
+  featured: false
+
+- slug: weworkremotely
+  name: We Work Remotely
+  category: jobboard
+  tagline: Curated job board focused entirely on remote positions
+  pricing: "Free"
+  pros:
+    - Every listing is remote by design, no filtering needed
+    - Strong for tech, design, and marketing roles
+  cons:
+    - Smaller volume than general job boards
+  url: https://weworkremotely.com
+  affiliate_link: ""
+  featured: false
+
+- slug: remoteok
+  name: RemoteOK
+  category: jobboard
+  tagline: Remote job board with a large tech and startup focus
+  pricing: "Free"
+  pros:
+    - Good filtering by tech stack and salary
+    - Frequently updated
+  cons:
+    - Heavily skewed toward software roles
+  url: https://remoteok.com
+  affiliate_link: ""
+  featured: false
+
+- slug: taplio
+  name: Taplio
+  category: linkedin
+  tagline: LinkedIn content and growth tool for building a personal brand
+  pricing: "$39 per month+"
+  pros:
+    - Strong content scheduling and analytics
+    - Useful for building visibility to recruiters
+  cons:
+    - Overkill if you just want to apply to jobs, not build an audience
+  url: https://taplio.com
+  affiliate_link: ""
+  featured: false
+
+- slug: shieldapp
+  name: Shield App
+  category: linkedin
+  tagline: LinkedIn analytics tool for tracking post and profile performance
+  pricing: "Free tier / paid plans for full analytics"
+  pros:
+    - Clear analytics on what content gets you visibility
+  cons:
+    - Analytics-only, no content creation help
+  url: https://www.shieldapp.ai
+  affiliate_link: ""
+  featured: false
+
+- slug: crystalknows
+  name: Crystal Knows
+  category: linkedin
+  tagline: Personality-insight tool for tailoring outreach and interview answers
+  pricing: "Free tier / $49 per month Premium"
+  pros:
+    - Useful for tailoring communication style to interviewers or recruiters
+  cons:
+    - Personality-prediction accuracy varies by profile completeness
+  url: https://www.crystalknows.com
+  affiliate_link: ""
+  featured: false
+
+- slug: linkedinhelper
+  name: Linked Helper
+  category: linkedin
+  tagline: LinkedIn automation tool for connection requests and outreach sequences
+  pricing: "$15 per month+"
+  pros:
+    - Automates outreach to recruiters and hiring managers at scale
+  cons:
+    - Automation risks running afoul of LinkedIn's usage limits
+  url: https://linkedhelper.com
+  affiliate_link: ""
+  featured: false

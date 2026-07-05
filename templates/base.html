@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ site_name }}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Compare the best job search tools — resume builders, ATS scanners, interview prep, job boards, and LinkedIn tools.{% endblock %}">
+  <link rel="canonical" href="{% block canonical %}{{ site_url }}/{% endblock %}">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="logo">{{ site_name }}</a>
+    <nav>
+      <a href="/category/resume.html">Resume</a>
+      <a href="/category/interview.html">Interview</a>
+      <a href="/category/jobboard.html">Job Boards</a>
+      <a href="/category/linkedin.html">LinkedIn</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 {{ site_name }}. Independent comparisons — some links may be affiliate links.</p>
+  </footer>
+</body>
+</html>

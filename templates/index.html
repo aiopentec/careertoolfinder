@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ site_name }} — Compare Job Search Tools{% endblock %}
+{% block canonical %}{{ site_url }}/{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Compare the tools that get you hired</h1>
+  <p>{{ tool_count }} job search tools compared head-to-head across resume building, interview prep, job boards, and LinkedIn growth.</p>
+</section>
+
+<section class="category-grid">
+  {% for slug, label in categories %}
+  <a class="category-card" href="/category/{{ slug }}.html">
+    <h2>{{ label }}</h2>
+  </a>
+  {% endfor %}
+</section>
+{% endblock %}
