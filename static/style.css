@@ -506,3 +506,35 @@ main { max-width: 980px; margin: 0 auto; padding: 56px 24px 40px; }
   .stats-bar { flex-wrap: wrap; }
   .stat { flex: 1 1 50%; border-bottom: 1px solid var(--border); }
 }
+
+/* Alternatives hub pages + cross-linking */
+.alt-link {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--brass-dark);
+  text-decoration: none;
+  border-top: none !important;
+  padding-top: 4px !important;
+  margin-top: 0 !important;
+}
+.alt-link:hover { text-decoration: underline; }
+
+.tool-column .alt-link {
+  font-weight: 500;
+  border: none;
+  margin-top: 8px;
+}
+
+.alternatives-page h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.2rem;
+  margin: 4px 0 12px;
+}
+
+.alt-intro {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  max-width: 62ch;
+  margin-bottom: 32px;
+}
