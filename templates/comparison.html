@@ -17,6 +17,7 @@
       <h3>Cons</h3>
       <ul>{% for c in tool_a.cons %}<li>{{ c }}</li>{% endfor %}</ul>
       <a href="{{ tool_a.url }}" rel="nofollow noopener">Visit {{ tool_a.name }} →</a>
+      <a href="/alternatives-to-{{ tool_a.slug }}.html" class="alt-link">More alternatives to {{ tool_a.name }} →</a>
     </div>
 
     <div class="tool-column">
@@ -28,6 +29,7 @@
       <h3>Cons</h3>
       <ul>{% for c in tool_b.cons %}<li>{{ c }}</li>{% endfor %}</ul>
       <a href="{{ tool_b.url }}" rel="nofollow noopener">Visit {{ tool_b.name }} →</a>
+      <a href="/alternatives-to-{{ tool_b.slug }}.html" class="alt-link">More alternatives to {{ tool_b.name }} →</a>
     </div>
   </div>
 

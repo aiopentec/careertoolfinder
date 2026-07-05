@@ -105,6 +105,33 @@ def build_categories(tools):
             f.write(html)
 
 
+def build_alternatives(tools, by_slug):
+    tmpl = env.get_template("alternatives.html")
+    categories = sorted(set(t["category"] for t in tools))
+    for tool in tools:
+        same_cat = [t for t in tools if t["category"] == tool["category"] and t["slug"] != tool["slug"]]
+        same_cat = sorted(same_cat, key=lambda t: t["name"])
+
+        alt_entries = []
+        for other in same_cat:
+            if tool["slug"] < other["slug"]:
+                compare_path = f"/compare/{tool['slug']}-vs-{other['slug']}.html"
+            else:
+                compare_path = f"/compare/{other['slug']}-vs-{tool['slug']}.html"
+            alt_entries.append({"tool": other, "compare_path": compare_path})
+
+        html = tmpl.render(
+            site_name=SITE_NAME,
+            site_url=SITE_URL,
+            tool=tool,
+            category_label=CATEGORY_LABELS[tool["category"]],
+            alternatives=alt_entries,
+        )
+        with open(os.path.join(OUT_DIR, f"alternatives-to-{tool['slug']}.html"), "w") as f:
+            f.write(html)
+    print(f"Generated {len(tools)} alternatives hub pages")
+
+
 def build_comparisons(tools, by_slug):
     tmpl = env.get_template("comparison.html")
     redirect_tmpl = env.get_template("redirect.html")
@@ -157,6 +184,9 @@ def build_sitemap(tools):
         for a, b in itertools.combinations(cat_tools, 2):
             urls.append(f"{SITE_URL}/compare/{a['slug']}-vs-{b['slug']}.html")
 
+    for t in tools:
+        urls.append(f"{SITE_URL}/alternatives-to-{t['slug']}.html")
+
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         lines.append(f"  <url><loc>{u}</loc></url>")
@@ -172,6 +202,7 @@ def main():
     build_home(tools)
     build_categories(tools)
     build_comparisons(tools, by_slug)
+    build_alternatives(tools, by_slug)
     build_sitemap(tools)
     print(f"Build complete: {len(tools)} tools -> {OUT_DIR}/")
 
