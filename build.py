@@ -51,11 +51,30 @@ def clean_output():
 def build_home(tools):
     tmpl = env.get_template("index.html")
     categories = sorted(set(t["category"] for t in tools))
+
+    # comparison pairs across all categories, for the filterable card grid
+    all_pairs = []
+    for cat in categories:
+        cat_tools = sorted(
+            [t for t in tools if t["category"] == cat], key=lambda t: t["slug"]
+        )
+        for a, b in itertools.combinations(cat_tools, 2):
+            all_pairs.append({"a": a, "b": b, "category": cat, "category_label": CATEGORY_LABELS[cat]})
+
+    chip_counts = [("all", "All", len(all_pairs))]
+    for cat in categories:
+        count = sum(1 for p in all_pairs if p["category"] == cat)
+        chip_counts.append((cat, CATEGORY_LABELS[cat], count))
+
     html = tmpl.render(
         site_name=SITE_NAME,
         site_url=SITE_URL,
         categories=[(c, CATEGORY_LABELS[c]) for c in categories],
         tool_count=len(tools),
+        comparison_count=len(all_pairs),
+        category_count=len(categories),
+        pairs=all_pairs,
+        chip_counts=chip_counts,
     )
     with open(os.path.join(OUT_DIR, "index.html"), "w") as f:
         f.write(html)
@@ -69,12 +88,18 @@ def build_categories(tools):
         cat_tools = sorted(
             [t for t in tools if t["category"] == cat], key=lambda t: t["name"]
         )
+        cat_tools_by_slug = sorted(cat_tools, key=lambda t: t["slug"])
+        pairs = [
+            {"a": a, "b": b}
+            for a, b in itertools.combinations(cat_tools_by_slug, 2)
+        ]
         html = tmpl.render(
             site_name=SITE_NAME,
             site_url=SITE_URL,
             category=cat,
             category_label=CATEGORY_LABELS[cat],
             tools=cat_tools,
+            pairs=pairs,
         )
         with open(os.path.join(OUT_DIR, "category", f"{cat}.html"), "w") as f:
             f.write(html)

@@ -7,6 +7,7 @@
   name: ATSKILLER
   category: resume
   tagline: AI prompt kit for tailoring resumes and cover letters to any job post
+  best_for: Quick AI resume tailoring
   pricing: "$19 one-time"
   pros:
     - Built specifically for ATS keyword matching
@@ -23,6 +24,7 @@
   name: Jobscan
   category: resume
   tagline: ATS resume scanner that scores your resume against a job description
+  best_for: ATS match-rate scoring
   pricing: "Free scan / $49.95+ per month for full plan"
   pros:
     - Direct ATS match-rate scoring
@@ -37,6 +39,7 @@
   name: Rezi
   category: resume
   tagline: AI resume builder with built-in ATS scoring
+  best_for: Build and score in one tool
   pricing: "Free tier / $29 per month Pro"
   pros:
     - Combines building and ATS checking in one tool
@@ -51,6 +54,7 @@
   name: Zety
   category: resume
   tagline: Resume and cover letter builder with guided content suggestions
+  best_for: Guided resume phrasing
   pricing: "$5.99 for 14-day trial, then subscription"
   pros:
     - Large template library
@@ -65,6 +69,7 @@
   name: Resume.io
   category: resume
   tagline: Simple resume builder focused on speed and clean templates
+  best_for: Fast, polished templates
   pricing: "$2.95 trial, then subscription"
   pros:
     - Fast to produce a polished resume
@@ -79,6 +84,7 @@
   name: Pramp
   category: interview
   tagline: Free peer-to-peer mock interview platform
+  best_for: Free live mock interviews
   pricing: "Free"
   pros:
     - Completely free
@@ -93,6 +99,7 @@
   name: Interview Query
   category: interview
   tagline: Interview question bank and courses focused on data/tech roles
+  best_for: Deep technical question bank
   pricing: "Free tier / $39 per month Premium"
   pros:
     - Deep question bank for technical and data roles
@@ -107,6 +114,7 @@
   name: Big Interview
   category: interview
   tagline: Video-based mock interview practice with AI feedback
+  best_for: Video practice with feedback
   pricing: "$79 per year"
   pros:
     - Realistic video practice format
@@ -121,6 +129,7 @@
   name: Google Interview Warmup
   category: interview
   tagline: Free AI-driven interview practice tool from Google
+  best_for: Free instant practice
   pricing: "Free"
   pros:
     - Completely free, no signup friction
@@ -135,6 +144,7 @@
   name: LinkedIn Jobs
   category: jobboard
   tagline: The largest professional network's native job board
+  best_for: Largest listing volume
   pricing: "Free / Premium subscription for extra insights"
   pros:
     - Largest pool of listings tied to real companies
@@ -149,6 +159,7 @@
   name: Indeed
   category: jobboard
   tagline: General-purpose job search engine aggregating listings from many sources
+  best_for: Broadest job aggregator
   pricing: "Free"
   pros:
     - Massive listing volume across every industry
@@ -163,6 +174,7 @@
   name: ZipRecruiter
   category: jobboard
   tagline: Job board that actively pushes your profile to matching employers
+  best_for: Employers reach out first
   pricing: "Free for job seekers"
   pros:
     - Employers often reach out first
@@ -177,6 +189,7 @@
   name: We Work Remotely
   category: jobboard
   tagline: Curated job board focused entirely on remote positions
+  best_for: Curated remote-only listings
   pricing: "Free"
   pros:
     - Every listing is remote by design, no filtering needed
@@ -191,6 +204,7 @@
   name: RemoteOK
   category: jobboard
   tagline: Remote job board with a large tech and startup focus
+  best_for: Remote tech-focused listings
   pricing: "Free"
   pros:
     - Good filtering by tech stack and salary
@@ -205,6 +219,7 @@
   name: Taplio
   category: linkedin
   tagline: LinkedIn content and growth tool for building a personal brand
+  best_for: LinkedIn content and growth
   pricing: "$39 per month+"
   pros:
     - Strong content scheduling and analytics
@@ -219,6 +234,7 @@
   name: Shield App
   category: linkedin
   tagline: LinkedIn analytics tool for tracking post and profile performance
+  best_for: LinkedIn performance analytics
   pricing: "Free tier / paid plans for full analytics"
   pros:
     - Clear analytics on what content gets you visibility
@@ -232,6 +248,7 @@
   name: Crystal Knows
   category: linkedin
   tagline: Personality-insight tool for tailoring outreach and interview answers
+  best_for: Tailored outreach by personality
   pricing: "Free tier / $49 per month Premium"
   pros:
     - Useful for tailoring communication style to interviewers or recruiters
@@ -245,6 +262,7 @@
   name: Linked Helper
   category: linkedin
   tagline: LinkedIn automation tool for connection requests and outreach sequences
+  best_for: Automated outreach at scale
   pricing: "$15 per month+"
   pros:
     - Automates outreach to recruiters and hiring managers at scale
