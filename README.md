@@ -4,6 +4,7 @@ Programmatic SEO comparison site for job-seeker tools: resume/ATS, interview pre
 job boards, and LinkedIn tools. Built on the same zero-cost stack as osalfinder.com,
 emailtoolcompare.com, and aitoolalternatives.com.
 
+
 ## Stack
 - Python + Jinja2 static site generator (`build.py`)
 - Data lives in `data/tools.yaml` — add tools here, no code changes needed
