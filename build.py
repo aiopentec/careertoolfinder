@@ -19,6 +19,9 @@ SITE_NAME = "CareerToolFinder"
 SITE_URL = "https://careertoolfinder.com"
 OUT_DIR = "docs"
 DATA_FILE = "data/tools.yaml"
+# Paste your Google Search Console HTML-tag verification code here (the
+# content="..." value only, not the full <meta> tag). Leave empty to omit.
+GSC_VERIFICATION = ""
 
 CATEGORY_LABELS = {
     "resume": "Resume & ATS Tools",
@@ -29,6 +32,7 @@ CATEGORY_LABELS = {
 
 env = Environment(loader=FileSystemLoader("templates"), autoescape=True)
 env.globals["build_date"] = date.today().strftime("%B %d, %Y")
+env.globals["gsc_verification"] = GSC_VERIFICATION
 
 
 def load_tools():
