@@ -558,6 +558,19 @@ main { max-width: 980px; margin: 0 auto; padding: 56px 24px 40px; }
   opacity: 0.8;
 }
 
+.footer-network {
+  margin: 8px 0 0;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  opacity: 0.8;
+  line-height: 1.5;
+}
+.footer-network a {
+  color: var(--ink-soft);
+  text-decoration: underline;
+}
+.footer-network a:hover { color: var(--brass-dark); }
+
 /* Static pages (About/Contact/Privacy) */
 .static-page h1 {
   font-family: var(--font-display);
