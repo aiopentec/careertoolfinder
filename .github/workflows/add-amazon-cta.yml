@@ -1,0 +1,39 @@
+name: Add Amazon Associates CTA
+
+# Manual-trigger only — click "Run workflow" in the Actions tab.
+# Safe to re-run: add_amazon_cta.py skips any step already applied.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Apply Amazon CTA patch
+        run: python3 add_amazon_cta.py
+
+      - name: Rebuild site
+        run: python3 build.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Add Amazon Associates CTA (automated)"
+          git push
