@@ -597,3 +597,35 @@ main { max-width: 980px; margin: 0 auto; padding: 56px 24px 40px; }
   padding-left: 20px;
 }
 .static-page li { margin-bottom: 8px; }
+
+/* --- Amazon Associates CTA (added by add_amazon_cta.py) --- */
+.amazon-cta {
+  border: 1px solid var(--sage);
+  border-left: 4px solid var(--sage);
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin: 24px auto 0;
+  max-width: 980px;
+  background: var(--paper-raised);
+}
+.amazon-cta .cta-eyebrow {
+  font-family: var(--font-mono);
+  color: var(--sage);
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 6px;
+}
+.amazon-cta h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+}
+.cta-button-alt { background: var(--sage); }
+.cta-button-alt:hover { background: var(--ink); }
+.amazon-cta .cta-disclosure {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin: 10px 0 0;
+}
