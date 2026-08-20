@@ -19,6 +19,7 @@ SITE_NAME = "CareerToolFinder"
 SITE_URL = "https://careertoolfinder.com"
 OUT_DIR = "docs"
 DATA_FILE = "data/tools.yaml"
+AMAZON_DATA_FILE = "data/amazon_products.yaml"
 # Paste your Google Search Console HTML-tag verification code here (the
 # content="..." value only, not the full <meta> tag). Leave empty to omit.
 GSC_VERIFICATION = ""
@@ -40,6 +41,11 @@ def load_tools():
         tools = yaml.safe_load(f)
     by_slug = {t["slug"]: t for t in tools}
     return tools, by_slug
+
+
+def load_amazon_products():
+    with open(AMAZON_DATA_FILE) as f:
+        return yaml.safe_load(f)
 
 
 def clean_output():
@@ -90,6 +96,7 @@ def build_categories(tools):
     tmpl = env.get_template("category.html")
     os.makedirs(os.path.join(OUT_DIR, "category"), exist_ok=True)
     categories = sorted(set(t["category"] for t in tools))
+    amazon_products = load_amazon_products()
     for cat in categories:
         cat_tools = sorted(
             [t for t in tools if t["category"] == cat], key=lambda t: t["name"]
@@ -106,6 +113,7 @@ def build_categories(tools):
             category_label=CATEGORY_LABELS[cat],
             tools=cat_tools,
             pairs=pairs,
+            amazon=amazon_products[cat],
         )
         with open(os.path.join(OUT_DIR, "category", f"{cat}.html"), "w") as f:
             f.write(html)
@@ -123,6 +131,7 @@ def build_static_pages():
 def build_alternatives(tools, by_slug):
     tmpl = env.get_template("alternatives.html")
     categories = sorted(set(t["category"] for t in tools))
+    amazon_products = load_amazon_products()
     for tool in tools:
         same_cat = [t for t in tools if t["category"] == tool["category"] and t["slug"] != tool["slug"]]
         same_cat = sorted(same_cat, key=lambda t: t["name"])
@@ -141,6 +150,7 @@ def build_alternatives(tools, by_slug):
             tool=tool,
             category_label=CATEGORY_LABELS[tool["category"]],
             alternatives=alt_entries,
+            amazon=amazon_products[tool["category"]],
         )
         with open(os.path.join(OUT_DIR, f"alternatives-to-{tool['slug']}.html"), "w") as f:
             f.write(html)
@@ -151,6 +161,7 @@ def build_comparisons(tools, by_slug):
     tmpl = env.get_template("comparison.html")
     redirect_tmpl = env.get_template("redirect.html")
     os.makedirs(os.path.join(OUT_DIR, "compare"), exist_ok=True)
+    amazon_products = load_amazon_products()
 
     categories = sorted(set(t["category"] for t in tools))
     pair_count = 0
@@ -170,6 +181,7 @@ def build_comparisons(tools, by_slug):
                 tool_b=b,
                 canonical_path=f"/compare/{canonical_slug}.html",
                 category_label=CATEGORY_LABELS[cat],
+                amazon=amazon_products[cat],
             )
             with open(os.path.join(OUT_DIR, "compare", f"{canonical_slug}.html"), "w") as f:
                 f.write(html)

@@ -1,0 +1,36 @@
+# Amazon Associates CTA content — one recommendation per tool category.
+# Your tag=aiopentec20-20 is baked into each url below.
+#
+# These use Amazon search-result links, which work immediately with no
+# ASIN lookup and still carry your associate tag when someone clicks
+# through. Swap any "url" for a specific product page later (add
+# /dp/ASIN/ before the ? ) once you've picked exact titles you want to
+# vouch for.
+
+resume:
+  eyebrow: "Before you apply"
+  title: "Level up your resume with the right playbook"
+  blurb: "A well-reviewed resume-writing guide can round out what these tools do — handy if you'd rather not commit to a monthly subscription."
+  url: "https://www.amazon.com/s?k=resume+writing+guide+book&tag=aiopentec20-20"
+  cta_text: "Browse resume guides on Amazon →"
+
+interview:
+  eyebrow: "Prepping for the call"
+  title: "Interview prep books that actually help"
+  blurb: "Pair your interview-prep tool with a structured prep book — useful for behavioral and situational questions the apps don't always cover."
+  url: "https://www.amazon.com/s?k=job+interview+preparation+book&tag=aiopentec20-20"
+  cta_text: "Browse interview prep books on Amazon →"
+
+jobboard:
+  eyebrow: "Job search strategy"
+  title: "The job-hunting classic, updated yearly"
+  blurb: "Job boards surface the openings — a solid job-search strategy book helps you actually land one, especially if you're job hunting for more than a few weeks."
+  url: "https://www.amazon.com/s?k=job+search+strategy+book&tag=aiopentec20-20"
+  cta_text: "Browse job search books on Amazon →"
+
+linkedin:
+  eyebrow: "Your profile, optimized"
+  title: "LinkedIn profile & personal branding guides"
+  blurb: "LinkedIn tools handle formatting and analytics — these guides help with the positioning and copywriting the tools can't do for you."
+  url: "https://www.amazon.com/s?k=linkedin+profile+optimization+book&tag=aiopentec20-20"
+  cta_text: "Browse LinkedIn guides on Amazon →"
