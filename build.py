@@ -8,10 +8,12 @@ Only generate ONE comparison page per pair, always alphabetical by slug.
 The reverse URL gets a lightweight meta-refresh redirect page, never a
 duplicate full page, to avoid canonical conflicts in the sitemap.
 """
+
 import itertools
 import os
 import shutil
 from datetime import date
+
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
@@ -20,6 +22,7 @@ SITE_URL = "https://careertoolfinder.com"
 OUT_DIR = "docs"
 DATA_FILE = "data/tools.yaml"
 AMAZON_DATA_FILE = "data/amazon_products.yaml"
+
 # Paste your Google Search Console HTML-tag verification code here (the
 # content="..." value only, not the full <meta> tag). Leave empty to omit.
 GSC_VERIFICATION = ""
@@ -30,6 +33,10 @@ CATEGORY_LABELS = {
     "jobboard": "Job Boards",
     "linkedin": "LinkedIn Tools",
 }
+
+# Static (hand-written-content) pages rendered straight from templates/<page>.html
+# with no data-file input — just site_name/site_url/build_date/gsc_verification.
+STATIC_PAGES = ("about", "contact", "privacy", "how-ats-works")
 
 env = Environment(loader=FileSystemLoader("templates"), autoescape=True)
 env.globals["build_date"] = date.today().strftime("%B %d, %Y")
@@ -97,6 +104,7 @@ def build_categories(tools):
     os.makedirs(os.path.join(OUT_DIR, "category"), exist_ok=True)
     categories = sorted(set(t["category"] for t in tools))
     amazon_products = load_amazon_products()
+
     for cat in categories:
         cat_tools = sorted(
             [t for t in tools if t["category"] == cat], key=lambda t: t["name"]
@@ -120,22 +128,22 @@ def build_categories(tools):
 
 
 def build_static_pages():
-    for page in ("about", "contact", "privacy"):
+    for page in STATIC_PAGES:
         tmpl = env.get_template(f"{page}.html")
         html = tmpl.render(site_name=SITE_NAME, site_url=SITE_URL)
         with open(os.path.join(OUT_DIR, f"{page}.html"), "w") as f:
             f.write(html)
-    print("Generated about.html, contact.html, privacy.html")
+    print(f"Generated {', '.join(f'{p}.html' for p in STATIC_PAGES)}")
 
 
 def build_alternatives(tools, by_slug):
     tmpl = env.get_template("alternatives.html")
     categories = sorted(set(t["category"] for t in tools))
     amazon_products = load_amazon_products()
+
     for tool in tools:
         same_cat = [t for t in tools if t["category"] == tool["category"] and t["slug"] != tool["slug"]]
         same_cat = sorted(same_cat, key=lambda t: t["name"])
-
         alt_entries = []
         for other in same_cat:
             if tool["slug"] < other["slug"]:
@@ -162,8 +170,8 @@ def build_comparisons(tools, by_slug):
     redirect_tmpl = env.get_template("redirect.html")
     os.makedirs(os.path.join(OUT_DIR, "compare"), exist_ok=True)
     amazon_products = load_amazon_products()
-
     categories = sorted(set(t["category"] for t in tools))
+
     pair_count = 0
     for cat in categories:
         cat_tools = sorted(
@@ -194,12 +202,14 @@ def build_comparisons(tools, by_slug):
                 f.write(redirect_html)
 
             pair_count += 1
+
     print(f"Generated {pair_count} canonical comparison pages ({pair_count * 2} total URLs with redirects)")
 
 
 def build_sitemap(tools):
     # only canonical URLs go in the sitemap — reverse redirect pages excluded on purpose
     urls = [f"{SITE_URL}/"]
+
     categories = sorted(set(t["category"] for t in tools))
     for cat in categories:
         urls.append(f"{SITE_URL}/category/{cat}.html")
@@ -214,13 +224,14 @@ def build_sitemap(tools):
     for t in tools:
         urls.append(f"{SITE_URL}/alternatives-to-{t['slug']}.html")
 
-    for page in ("about", "contact", "privacy"):
+    for page in STATIC_PAGES:
         urls.append(f"{SITE_URL}/{page}.html")
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         lines.append(f"  <url><loc>{u}</loc></url>")
     lines.append("</urlset>")
+
     with open(os.path.join(OUT_DIR, "sitemap.xml"), "w") as f:
         f.write("\n".join(lines))
     print(f"Sitemap: {len(urls)} canonical URLs")
