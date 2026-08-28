@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}How ATS Systems Actually Work — {{ site_name }}{% endblock %}
+{% block meta_description %}How Applicant Tracking Systems actually score resumes, and why keyword-matching — not qualification — is usually the real filter before a recruiter ever sees your application.{% endblock %}
+{% block canonical %}{{ site_url }}/how-ats-works.html{% endblock %}
+{% block content %}
+<section class="static-page">
+  <h1>How ATS Systems Actually Work (And What to Do About It)</h1>
+  <p class="alt-intro">Most job seekers imagine a human rejecting their resume. In reality, the first "reader" is almost always software.</p>
+
+  <p>An Applicant Tracking System (ATS) — used by the vast majority of mid-size and large employers — ingests every resume submitted to a posting, parses it into structured fields (name, title, skills, dates, education), and scores or ranks it against the job description before a recruiter ever opens it.</p>
+
+  <h2>It's mostly keyword matching, not judgment</h2>
+  <p>The ATS is looking for overlap between the language in the job description and the language in your resume — specific tools, certifications, job titles, years of experience, and phrasing.</p>
+  <p>A candidate who is genuinely qualified but describes their experience in different words than the posting can score lower than a less-qualified candidate who happens to mirror the posting's vocabulary. Two resumes describing the same work — "managed client relationships" versus "owned a book of 40+ enterprise accounts, driving $1.2M in renewals" — can land in completely different percentiles, even though a human reading both might rate the candidates similarly.</p>
+
+  <h2>Three things this means for your applications</h2>
+  <ol>
+    <li><strong>Every application needs to be re-tuned to the specific posting.</strong> A generic resume, however well-written, is invisible to an ATS tuned to a specific role's keywords. The fix isn't rewriting your whole career — it's extracting the exact language a posting uses and mirroring it back in your existing experience, honestly and specifically.</li>
+    <li><strong>Formatting failures are silent.</strong> Tables, text boxes, headers/footers, columns, and graphics that look sharp to a human can parse as garbled or blank fields to an ATS. Many rejections are never about qualification at all — the system simply couldn't read the resume correctly.</li>
+    <li><strong>Keyword matching rewards specificity, not stuffing.</strong> Cramming a resume with buzzwords does not fool modern ATS software, and it reads badly to the human recruiter who eventually sees a shortlisted resume. The winning move is targeted precision — the right terms, used the way the posting uses them, backed by real evidence.</li>
+  </ol>
+
+  <h2>What to actually do about it</h2>
+  <p>For a single application, the fastest fix is a five-step pass: pull the exact keywords out of the posting, rewrite your resume against them, catch anything still missing, tailor the cover letter the same way, and keep your LinkedIn profile consistent with what you submitted. Done by hand, that's an hour of careful rewriting per application. Done with the right prompts, it's closer to fifteen minutes.</p>
+
+  {% include "_atspack_cta.html" %}
+</section>
+{% endblock %}
