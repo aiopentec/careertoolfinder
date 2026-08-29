@@ -5,6 +5,9 @@
 {% block content %}
 <section class="category-page">
   <h1>{{ category_label }}</h1>
+  {% if category == 'resume' %}
+  <p><a href="/how-ats-works.html">Read: How ATS Systems Actually Work →</a></p>
+  {% endif %}
   <div class="tool-list">
     {% for tool in tools %}
     <div class="tool-card">
